@@ -7,6 +7,15 @@ Vision
 Make climate risk protection accessible, transparent, and automated using smart contracts and decentralized data oracles like Chainlink.  
 Inspired by the recent Mastercard × Chainlink collaboration, ARC also explores integrating fiat on-ramps, allowing farmers to activate their insurance coverage directly via card payment, while handling on-chain logic and payouts through stablecoins.
 
+## Installation
+
+To install dependencies:
+
+```bash
+npm install
+npx hardhat compile
+
+
 Roadmap
 
 🧠 Research & data source integration
