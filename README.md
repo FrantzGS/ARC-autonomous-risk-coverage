@@ -13,7 +13,10 @@ To install dependencies:
 
 ```bash
 npm install
+
+To compile the contracts:
 npx hardhat compile
+
 
 
 Roadmap
