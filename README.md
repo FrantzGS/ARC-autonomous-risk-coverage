@@ -13,7 +13,7 @@ To install dependencies:
 
 ```bash
 npm install
-npx hardhat compile
+
 
 
 
