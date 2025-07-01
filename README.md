@@ -1,4 +1,4 @@
-# ARC-autonomous-risk-coverage
+# ARClimate
 Decentralized parametric weather insurance protocol. Built for ETHGlobal Unite Hackathon 2025.
 Overview
 ARC (Autonomous Risk Coverage) is a decentralized parametric insurance protocol designed to support farms and agricultural actors affected by extreme weather events.
