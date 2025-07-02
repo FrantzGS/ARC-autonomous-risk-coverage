@@ -19,6 +19,12 @@ npx hardhat compile
 ```
 
 
+## Swap Integration
+
+ARClimate integrates 1inch via the frontend using Metamask to perform ETH, USDC, or USDT swaps before insurance subscription. This ensures simplicity, security, and user-controlled transactions while enabling premium payments in stablecoins for payouts.
+
+
+
 
 
 
