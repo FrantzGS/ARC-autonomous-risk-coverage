@@ -45,4 +45,19 @@ Roadmap
 
 
 License
-This project is open-source under the MIT license.
+This project is open-source under the MIT license. 
+
+
+
+
+
+## 🚀 Deployment
+
+This smart contract is deployed on a testnet using Hardhat.
+
+### Compile
+
+```bash
+npx hardhat compile
+npx hardhat run scripts/deploy.js --network sepolia
+
