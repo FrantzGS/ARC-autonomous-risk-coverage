@@ -84,7 +84,7 @@ For questions, collaborations, or feedback, feel free to reach out:
 
 - GitHub: [https://github.com/FrantzGS](https://github.com/FrantzGS)  
 - LinkedIn: [https://www.linkedin.com/in/frantz-galinier-stefani](https://www.linkedin.com/in/frantz-galinier-stefani)
-- Email: galin8191@gmail.com
+- Email: arclimate.dev@gmail.com 
 
 
 
