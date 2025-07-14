@@ -94,16 +94,6 @@ Token approvals
 Policy subscriptions
 Payout execution with event emission
 
-Screenshots
-Add screenshots in your presentation:
-
-Compilation success
-Deploy Mock tokens
-Mint tokens
-Deploy ARClimate
-Approve tokens
-Subscribe USDC & USDT
-Payout execution 
 
 ## 🔗 Smart Contract Deployment
 
