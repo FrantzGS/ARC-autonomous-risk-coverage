@@ -1,119 +1,40 @@
-# 🌾 ARClimate – Parametric Weather Insurance on Blockchain
+🌾 ARC – Autonomous Risk Coverage
+Climate-Linked Smart Coverage for a Changing World
 
-## 🚀 Project Overview
+ARC is a decentralized climate risk coverage protocol built on Ethereum.
+It provides farmers with automated, transparent protection against extreme weather events (drought, heatwaves, frost…), using on-chain data and AI-calculated risk indexes.
 
-ARClimate is a decentralized parametric insurance platform that protects farmers against climate risks (droughts, heatwaves, etc.) with automated payouts based on on-chain data.
+🔍 The Problem
+Climate volatility is destroying crops across the globe.
+Traditional insurance is slow, opaque, and often inaccessible to small and medium farmers.
+ARC replaces paperwork with smart contracts, and subjective evaluations with verifiable, automated payouts.
 
-✅ **MVP functionalities implemented:**
-- Create insurance policies for crops with premium, area, and duration
-- Pay premiums in **MockUSDC** or **MockUSDT**
-- Calculate **Risk Index** (mocked)
-- Calculate **Payout** (mocked)
-- Trigger payout execution
+✅ What the MVP Delivers
 
----
+Real-time subscription to climate coverage per crop
 
-## 🛠️ **Tech Stack**
+USDC / USDT / ETH payment via wallet
 
-- **Solidity** (Smart contracts)
-- **Hardhat** (Development & testing)
-- **OpenZeppelin** (Security & ERC20 implementation)
-- **Sepolia Testnet** (Deployment & testing)
+Risk Index calculated from weather data (mocked)
 
----
+Dynamic premium estimation (off-chain AI backend)
 
-## 📂 **Project Structure**
+Autonomous payout logic (mocked for demo)
 
-``` contracts/
+Full testnet deployment (Sepolia)
 
-ARClimate.sol
+🧱 Tech Stack
 
-MockUSDC.sol
+Solidity (smart contracts)
 
-MockUSDT.sol
-scripts/
+Chainlink Functions & Automation (mocked)
 
-deploy.js
+Python Flask (risk/premium backend)
 
-deployMocks.js
+React.js (frontend)
 
-mintTokens.js
+Sepolia Testnet (live)
 
-approve.js
-
-subscribeTest.js
-
-subscribeUSDTTest.js
-
-payoutTest.js 
-```
-
----
-
-## ⚙️ **Deployment & Test Instructions**
-
-1. **Compile contracts**
-
-```bash
-npx hardhat compile
-```
-
-Deploy Mock tokens (USDC & USDT)
-npx hardhat run scripts/deployMocks.js --network sepolia
-
-Mint Mock tokens to your wallet
-npx hardhat run scripts/mintTokens.js --network sepolia
-
-Deploy ARClimate contract
-Update deploy.js with deployed Mock token addresses and your wallet address:
-const usdcAddress = "0x...";
-const usdtAddress = "0x...";
-const poolAddress = "0x..."; 
-
-Then deploy:
-npx hardhat run scripts/deploy.js --network sepolia
-
-Approve tokens to ARClimate
-npx hardhat run scripts/approve.js --network sepolia
-
-Subscribe with USDC
-npx hardhat run scripts/subscribeTest.js --network sepolia
-
-Subscribe with USDT
-npx hardhat run scripts/subscribeUSDTTest.js --network sepolia
-
-Trigger payout
-npx hardhat run scripts/payoutTest.js --network sepolia
-
-
-Tests & Validation
-✅ Tested on Sepolia testnet with:
-
-Successful deploys
-Token approvals
-Policy subscriptions
-Payout execution with event emission
-
-
-## 🔗 Smart Contract Deployment
-
-- [ARClimate Contract on Sepolia Etherscan](https://sepolia.etherscan.io/address/0x790466e6890a42e081eF2704377bC25E01F3a8f0#code)
-
-
-Vision
-In production, ARClimate will integrate:
-
-Chainlink Functions & oracles for live weather data
-Automated yield strategies (DeFi) to grow premium pools
-Real risk index AI models to optimize premium calculation
-
-Author
-
-GALINIER-STEFANI Frantz
-www.linkedin.com/in/frantz-galinier-stefani-90571965
-arclimate.dev@gmail.com
-Hackathon: ETHGlobal Unite DeFi 2025 
-
-
-
-Note: This MVP uses mocked functions for demonstration. Risk Index and Payout logic will be integrated with Chainlink and real data feeds in V2.
+📘 Note
+This MVP is a functional simulation.
+In production, ARC will integrate Chainlink weather oracles, real on-chain AI risk scoring, and DeFi yield strategies to sustain premium pools.
