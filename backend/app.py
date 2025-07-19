@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import os
 from utils.risk import compute_risk_index
 import requests
 
