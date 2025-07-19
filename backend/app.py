@@ -73,6 +73,10 @@ def risk_index_route():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"message": "ARC backend is live and ready!"})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
