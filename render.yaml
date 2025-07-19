@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: arc-backend
+    env: python
+    region: frankfurt
+    plan: free
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "python3 backend/app.py"
+    rootDir: "."
