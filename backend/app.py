@@ -15,7 +15,6 @@ def geocode_address(address):
     headers = {
         "User-Agent": "ARClimate/1.0 (contact@example.com)"
     }
-
     response = requests.get(url, params=params, headers=headers)
     data = response.json()
 
@@ -31,50 +30,24 @@ def estimate_prime(surface_ha, rendement_t_ha, prix_kg, risk_index):
     prime = surface_ha * rendement_kg_ha * prix_kg * risk_index * 0.01
     return round(prime, 2)
 
-@app.route("/risk", methods=["GET"])
-def risk_index_route():
-    address = request.args.get("address")
-    crop_type = request.args.get("crop_type")
+@app.route("/evaluate-risk", methods=["GET"])
+def evaluate_risk_route():
+    crop = request.args.get("crop")
+    area = request.args.get("area")
 
-    if not address or not crop_type:
-        return jsonify({"error": "Missing address or crop_type"}), 400
-
-    lat, lon = geocode_address(address)
-    if lat is None or lon is None:
-        return jsonify({"error": "Invalid address"}), 400
+    if not crop or not area:
+        return jsonify({"error": "Missing crop or area"}), 400
 
     try:
-        risk_index = compute_risk_index(lat, lon, crop_type)
+        area = float(area)
+    except ValueError:
+        return jsonify({"error": "Invalid area value"}), 400
 
-        surface_ha = 10
-        prix_kg = 0.30
-        rendements = {
-            "blé": 6.0,
-            "maïs": 9.0,
-            "colza": 3.5,
-            "tournesol": 2.5,
-            "vigne": 7.0,
-            "pommier": 20.0,
-            "poirier": 18.0,
-            "pêcher": 15.0,
-            "olivier": 4.0
-        }
-        rendement_t_ha = rendements.get(crop_type.lower(), 5.0)
+    lat, lon = 43.1833, 3.0034
+    risk_index = compute_risk_index(lat, lon, crop)
 
-        prime_estimate = estimate_prime(surface_ha, rendement_t_ha, prix_kg, risk_index)
+    return jsonify({"risk_index": risk_index})
 
-        return jsonify({
-            "address": address,
-            "crop_type": crop_type,
-            "lat": lat,
-            "lon": lon,
-            "risk_index": risk_index,
-            "prime_estimate": prime_estimate
-        })
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-    
 @app.route("/", methods=["GET"])
 def home():
     return jsonify({"message": "ARC backend is live and ready!"})
@@ -82,5 +55,3 @@ def home():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-
-
