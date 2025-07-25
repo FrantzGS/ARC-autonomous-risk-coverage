@@ -8,3 +8,20 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Virtualenv
+.venv/
+
+# VS Code
+.vscode/
+
+# MacOS / Linux
+.DS_Store
+*.swp

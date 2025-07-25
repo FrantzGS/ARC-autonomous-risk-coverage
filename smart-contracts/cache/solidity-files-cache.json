@@ -2,17 +2,17 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/contracts/ARCSubscription.sol": {
-      "lastModificationDate": 1752792505880,
+      "lastModificationDate": 1752882133534,
       "contentHash": "e9e850c28f09a09384e0e40764a56a5e",
       "sourceName": "contracts/ARCSubscription.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -43,17 +43,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol": {
-      "lastModificationDate": 1752786455215,
+      "lastModificationDate": 1753037903940,
       "contentHash": "1535f8c0c68463f8c1b5239f7584e71f",
       "sourceName": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -79,17 +79,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@openzeppelin/contracts/security/Pausable.sol": {
-      "lastModificationDate": 1752786455213,
+      "lastModificationDate": 1753037903938,
       "contentHash": "25c8108f36fdd472bc78d4c4af240c11",
       "sourceName": "@openzeppelin/contracts/security/Pausable.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -117,17 +117,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1752786455212,
+      "lastModificationDate": 1753037903937,
       "contentHash": "5a20b2cad87ddb61c7a3a6af21289e28",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -155,17 +155,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1752786455190,
+      "lastModificationDate": 1753037903901,
       "contentHash": "df36f7051335cd1e748b1b6463b7fdd3",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -191,17 +191,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1752786455134,
-      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
+      "lastModificationDate": 1753037903819,
+      "contentHash": "f07feb4a44b1a4872370da5aa70e8e46",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -227,17 +227,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1752786455191,
+      "lastModificationDate": 1753037903902,
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -265,17 +265,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1752786455156,
+      "lastModificationDate": 1753037903860,
       "contentHash": "3ae5166c6827a9cf1a7a462d1632b464",
       "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -305,17 +305,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/contracts/MockUSDC.sol": {
-      "lastModificationDate": 1752790339600,
+      "lastModificationDate": 1752882133534,
       "contentHash": "6732c5e06f8c976f3c39a44de310fe67",
       "sourceName": "contracts/MockUSDC.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -343,17 +343,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/contracts/MockUSDT.sol": {
-      "lastModificationDate": 1752793413115,
+      "lastModificationDate": 1752882133535,
       "contentHash": "ead82316d360536e84ed3bdc23d406d9",
       "sourceName": "contracts/MockUSDT.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -381,17 +381,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/contracts/ARCFunctionsConsumer.sol": {
-      "lastModificationDate": 1752875513566,
-      "contentHash": "903f17e27bb795ea29b424eb558c60ba",
+      "lastModificationDate": 1753392380665,
+      "contentHash": "ce9a9ba2c47df7d1271f1f8a4c1533aa",
       "sourceName": "contracts/ARCFunctionsConsumer.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -409,29 +409,29 @@
         }
       },
       "imports": [
+        "@chainlink/contracts/src/v0.8/functions/v1_0_0/FunctionsClient.sol",
         "@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol",
-        "./chainlink/FunctionsClient.sol",
-        "./chainlink/FunctionsRequest.sol"
+        "@chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsRequest.sol"
       ],
       "versionPragmas": [
         "^0.8.19"
       ],
       "artifacts": [
-        "ARCFunctionsConsumer"
+        "FunctionsConsumer"
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/contracts/chainlink/FunctionsClient.sol": {
-      "lastModificationDate": 1752874015863,
+      "lastModificationDate": 1752882133535,
       "contentHash": "c585d33eaf2e83975b9acf9de85691f8",
       "sourceName": "contracts/chainlink/FunctionsClient.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -459,17 +459,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/contracts/chainlink/FunctionsRequest.sol": {
-      "lastModificationDate": 1752872091942,
+      "lastModificationDate": 1752882133535,
       "contentHash": "25a17bcb1d8c220ce21fceeb87c86b3b",
       "sourceName": "contracts/chainlink/FunctionsRequest.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -495,17 +495,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol": {
-      "lastModificationDate": 1752796247586,
+      "lastModificationDate": 1753037904060,
       "contentHash": "1ed782c1e3014a255f9171aefc3cdde3",
       "sourceName": "@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -533,17 +533,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwnerWithProposal.sol": {
-      "lastModificationDate": 1752796247586,
+      "lastModificationDate": 1753037904060,
       "contentHash": "f29daa205dcbdc6037de8e38e5a34158",
       "sourceName": "@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwnerWithProposal.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -571,17 +571,17 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/shared/interfaces/IOwnable.sol": {
-      "lastModificationDate": 1752796247725,
+      "lastModificationDate": 1753037904093,
       "contentHash": "b3ae9b7345205a0a65f3e0f89c176d88",
       "sourceName": "@chainlink/contracts/src/v0.8/shared/interfaces/IOwnable.sol",
       "solcConfig": {
-        "version": "0.8.24",
+        "version": "0.8.20",
         "settings": {
+          "evmVersion": "paris",
           "optimizer": {
-            "enabled": true,
+            "enabled": false,
             "runs": 200
           },
-          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -604,6 +604,420 @@
       ],
       "artifacts": [
         "IOwnable"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/functions/v1_0_0/FunctionsClient.sol": {
+      "lastModificationDate": 1753037904076,
+      "contentHash": "03c4620e369a0fa92a95a17988313bdb",
+      "sourceName": "@chainlink/contracts/src/v0.8/functions/v1_0_0/FunctionsClient.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IFunctionsRouter.sol",
+        "./interfaces/IFunctionsClient.sol",
+        "./libraries/FunctionsRequest.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "FunctionsClient"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsRequest.sol": {
+      "lastModificationDate": 1753037904078,
+      "contentHash": "8ca65d4666bcf1f4e3b01ac976f96dce",
+      "sourceName": "@chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsRequest.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../vendor/solidity-cborutils/v2.0.0/CBOR.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "FunctionsRequest"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/functions/v1_0_0/interfaces/IFunctionsClient.sol": {
+      "lastModificationDate": 1753037904091,
+      "contentHash": "2a200f8d13068f38d2e43aba82a42762",
+      "sourceName": "@chainlink/contracts/src/v0.8/functions/v1_0_0/interfaces/IFunctionsClient.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "IFunctionsClient"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/functions/v1_0_0/interfaces/IFunctionsRouter.sol": {
+      "lastModificationDate": 1753037904091,
+      "contentHash": "e02e28dbe30aacda992e51136ceccf1b",
+      "sourceName": "@chainlink/contracts/src/v0.8/functions/v1_0_0/interfaces/IFunctionsRouter.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../libraries/FunctionsResponse.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "IFunctionsRouter"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/vendor/solidity-cborutils/v2.0.0/CBOR.sol": {
+      "lastModificationDate": 1753037904058,
+      "contentHash": "a496b670d630b3529a54986cd1148896",
+      "sourceName": "@chainlink/contracts/src/v0.8/vendor/solidity-cborutils/v2.0.0/CBOR.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../@ensdomains/buffer/v0.1.0/Buffer.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "CBOR"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/vendor/@ensdomains/buffer/v0.1.0/Buffer.sol": {
+      "lastModificationDate": 1753037904049,
+      "contentHash": "f56822d17e35b3259cbdb1318c866e20",
+      "sourceName": "@chainlink/contracts/src/v0.8/vendor/@ensdomains/buffer/v0.1.0/Buffer.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "Buffer"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsResponse.sol": {
+      "lastModificationDate": 1753037904079,
+      "contentHash": "70264441a9fdb243ed16851adfd67b11",
+      "sourceName": "@chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsResponse.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "FunctionsResponse"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/contracts/AutomatedFunctionsConsumer.sol": {
+      "lastModificationDate": 1753392197924,
+      "contentHash": "9a6e75e4ca9d66437a863f64eb284925",
+      "sourceName": "contracts/AutomatedFunctionsConsumer.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@chainlink/contracts/src/v0.8/functions/v1_0_0/FunctionsClient.sol",
+        "@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol",
+        "@chainlink/contracts/src/v0.8/functions/v1_0_0/libraries/FunctionsRequest.sol",
+        "@chainlink/contracts/src/v0.8/automation/AutomationCompatible.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "AutomatedFunctionsConsumer"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/automation/AutomationCompatible.sol": {
+      "lastModificationDate": 1753037903997,
+      "contentHash": "5e080eff2df83e7d1ec3b981fddeb1ce",
+      "sourceName": "@chainlink/contracts/src/v0.8/automation/AutomationCompatible.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./AutomationBase.sol",
+        "./interfaces/AutomationCompatibleInterface.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AutomationCompatible"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/automation/AutomationBase.sol": {
+      "lastModificationDate": 1753037903997,
+      "contentHash": "b53171d7e10f5036ecc73fac5d28028b",
+      "sourceName": "@chainlink/contracts/src/v0.8/automation/AutomationBase.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AutomationBase"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@chainlink/contracts/src/v0.8/automation/interfaces/AutomationCompatibleInterface.sol": {
+      "lastModificationDate": 1753037903997,
+      "contentHash": "5cb8d69e4e9ed7ff601180e31372d0ca",
+      "sourceName": "@chainlink/contracts/src/v0.8/automation/interfaces/AutomationCompatibleInterface.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AutomationCompatibleInterface"
       ]
     }
   }
