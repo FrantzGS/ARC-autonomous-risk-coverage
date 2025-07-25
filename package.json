@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "@chainlink/functions-toolkit": "^0.3.2"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^9.0.0",
+    "hardhat": "^2.26.1"
   }
 }

@@ -1,19 +1,18 @@
-const { ethers } = require("hardhat");
-require("dotenv").config();
+const hre = require("hardhat");
 
 async function main() {
-  const [deployer] = await ethers.getSigners();
+  const [deployer] = await hre.ethers.getSigners();
+
   console.log("🧑‍💻 Déploiement avec l'adresse :", deployer.address);
 
-  const ARCFunctionsConsumer = await ethers.getContractFactory("ARCFunctionsConsumer");
+  const ARCFunctionsConsumer = await hre.ethers.getContractFactory("ARCFunctionsConsumer");
   const contract = await ARCFunctionsConsumer.deploy();
 
-  await contract.waitForDeployment();
-
-  console.log("✅ Contrat déployé à l'adresse :", await contract.getAddress());
+  await contract.deployed();
+  console.log("✅ Contrat déployé à l'adresse :", contract.address);
 }
 
 main().catch((error) => {
   console.error("❌ Erreur de déploiement :", error);
-  process.exitCode = 1;
+  process.exit(1);
 });
