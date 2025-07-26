@@ -1,6 +1,7 @@
 import os
+import subprocess
 import requests
-from backend.utils.risk import compute_risk_index, get_weather_data
+from utils.risk import compute_risk_index, get_weather_data
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
@@ -106,6 +107,35 @@ def calculate_risk_and_prime():
 @app.route("/", methods=["GET"])
 def home():
     return jsonify({"message": "ARC backend is live and ready!"})
+
+@app.route("/simulate-risk", methods=["POST"])
+def simulate_risk():
+    data = request.get_json()
+    crop = data.get("crop")
+    area = data.get("area")
+
+    if not crop or not area:
+        return jsonify({"error": "Missing crop or area"}), 400
+
+    try:
+        result = subprocess.run(
+            ["node", "scripts/risk-index/runRiskIndex.js", crop, str(area)],
+            cwd=os.path.abspath("../smart-contracts"),
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        output = result.stdout
+        for line in output.splitlines():
+            if "Risk Index récupéré" in line:
+                value = float(line.split(":")[1].strip())
+                return jsonify({"riskIndex": value})
+
+        return jsonify({"error": "RiskIndex not found in output"}), 500
+
+    except subprocess.CalledProcessError as e:
+        return jsonify({"error": "Simulation failed", "details": e.stderr}), 500
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
