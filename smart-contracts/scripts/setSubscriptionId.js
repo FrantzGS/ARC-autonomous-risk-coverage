@@ -9,7 +9,7 @@ async function main() {
   const tx = await consumer.setSubscriptionId(subscriptionId);
   await tx.wait();
 
-  console.log("✅ Subscription ID mis à jour :", subscriptionId);
+  console.log("Subscription ID mis à jour :", subscriptionId);
 }
 
 main().catch((error) => {

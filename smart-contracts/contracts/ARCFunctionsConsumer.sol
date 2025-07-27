@@ -8,7 +8,7 @@ import {FunctionsRequest} from "@chainlink/contracts/src/v0.8/functions/v1_0_0/l
 /**
  * @title Chainlink Functions example on-demand consumer contract example
  */
-contract FunctionsConsumer is FunctionsClient, ConfirmedOwner {
+contract ARCFunctionsConsumer is FunctionsClient, ConfirmedOwner {
   using FunctionsRequest for FunctionsRequest.Request;
 
   bytes32 public donId; // DON ID for the Functions DON to which the requests are sent
@@ -72,4 +72,14 @@ contract FunctionsConsumer is FunctionsClient, ConfirmedOwner {
     s_lastResponse = response;
     s_lastError = err;
   }
+  function testFulfillRequest(
+    bytes32 requestId,
+    bytes memory response,
+    bytes memory err
+) public {
+    fulfillRequest(requestId, response, err);
+}
+
+
+
 }

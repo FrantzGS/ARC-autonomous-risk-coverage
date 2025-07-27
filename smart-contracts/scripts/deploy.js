@@ -7,13 +7,13 @@ async function main() {
 
   const ARC = await ethers.getContractFactory("ARCSubscription");
   const contract = await ARC.deploy();
-  await contract.waitForDeployment();
+  await contract.deployed();
 
-  const address = await contract.getAddress();
-  console.log("✅ Contrat ARCSubscription déployé à :", address);
+  const address = contract.address;
+  console.log("Contrat ARCSubscription déployé à :", address);
 }
 
 main().catch((error) => {
-  console.error("❌ Erreur de déploiement :", error);
+  console.error("Erreur de déploiement :", error);
   process.exitCode = 1;
 });

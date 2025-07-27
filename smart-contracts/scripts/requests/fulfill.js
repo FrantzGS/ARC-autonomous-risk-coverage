@@ -19,28 +19,28 @@ async function main() {
   const requestId = process.env.REQUEST_ID;
   if (!requestId) throw new Error("Missing REQUEST_ID in .env");
 
-  const response = ethers.utils.defaultAbiCoder.encode(["uint256"], [42]);
+  const response = ethers.utils.defaultAbiCoder.encode(["uint256"], [42]); // valeur mockée
   const error = "0x";
 
   try {
-    console.log("Simulating callStatic...");
+    console.log("📡 Simulating callStatic...");
     await contract.callStatic.testFulfillRequest(requestId, response, error);
-    console.log("callStatic succeeded ➡️ real transaction will be sent.");
+    console.log("✅ callStatic succeeded ➡️ real transaction will be sent.");
 
   } catch (callErr) {
-    console.error("callStatic reverted:", callErr);
+    console.error("❌ callStatic reverted:", callErr);
     return;
   }
 
-
+  // Si on arrive ici, callStatic a réussi
   try {
     console.log("⛓️ Sending real transaction...");
     const tx = await contract.testFulfillRequest(requestId, response, error);
-    console.log(`Tx hash: ${tx.hash}`);
+    console.log(`📬 Tx hash: ${tx.hash}`);
     const receipt = await tx.wait();
-    console.log("Transaction mined:", receipt.transactionHash);
+    console.log("✅ Transaction mined:", receipt.transactionHash);
   } catch (txErr) {
-    console.error("Transaction failed:", txErr);
+    console.error("❌ Transaction failed:", txErr);
   }
 }
 

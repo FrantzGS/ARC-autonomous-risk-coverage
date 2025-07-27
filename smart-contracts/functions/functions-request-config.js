@@ -7,23 +7,24 @@ module.exports = {
   gasLimit: 300000,
   secrets: {},
   args: ["mais", "10"],
-  source: `
-    const crop = args[0];
-    const area = args[1];
-    const endpoint = \`https://arc-backend.onrender.com/risk-index?crop=\${crop}&area=\${area}\`;
+ source: `
+  const crop = args[0];
+  const area = args[1];
+  const endpoint = \`https://1ba926e62a17.ngrok-free.app/risk-index?crop=\${crop}&area=\${area}\`;
 
-    const response = await Functions.makeHttpRequest({ url: endpoint });
+  const response = await Functions.makeHttpRequest({ url: endpoint });
 
-    if (response.error) {
-      throw Error(\`Request failed: \${response.message}\`);
-    }
+  if (response.error) {
+    throw Error(\`Request failed: \${response.message}\`);
+  }
 
-    if (!response.data || !response.data.riskIndex) {
-      throw Error("No riskIndex in response");
-    }
+  if (!response.data || !response.data.riskIndex) {
+    throw Error("No riskIndex in response");
+  }
 
-    return Functions.encodeUint256(Math.floor(response.data.riskIndex * 10000));
-  `,
+  return Functions.encodeUint256(Math.floor(response.data.riskIndex * 10000));
+`,
+
   codeLocation: Location.INLINE,
   secretsLocation: Location.NONE,
   expectedReturnType: ReturnType.UINT256,
