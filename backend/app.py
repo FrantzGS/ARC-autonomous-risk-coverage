@@ -1,63 +1,47 @@
 from flask import Flask, request, jsonify
 
 from utils.geo import geocode_address
-from utils.risk import compute_risk_index
-import logging
+from utils.risk import compute_risk_index, get_weather_data
 
 app = Flask(__name__)
-
-logger = logging.getLogger("arc")
-handler = logging.StreamHandler()
-formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
-logger.setLevel(logging.INFO)
+app.config['JSON_AS_ASCII'] = False
 
 @app.route('/')
 def health_check():
-    return jsonify({"message": "ARC backend is live and ready!"})
+    return jsonify(message="ARC backend is live and ready!")
 
 @app.route('/api/calculate', methods=['POST'])
 def calculate_risk():
     try:
-        data = request.get_json(silent=True)
+        data = request.get_json(force=True)
+
         if not data:
-            logger.warning("No JSON payload")
-            return jsonify({"error": "Invalid or missing JSON"}), 400
+            return jsonify({"error": "Aucune donnée reçue"}), 400
 
         address = data.get('address')
         crop = data.get('crop')
-        surface = data.get('surface') or data.get('area')
+        surface = data.get('surface')
 
         if not address or not crop or surface is None:
-            logger.warning("Missing required field(s)")
-            return jsonify({"error": "Missing address, crop, or surface"}), 400
+            return jsonify({"error": "Champs requis manquants"}), 400
 
         lat, lon = geocode_address(address)
         if lat is None or lon is None:
-            logger.warning(f"Could not geocode address: {address}")
-            return jsonify({"error": "Could not geocode address"}), 400
+            return jsonify({"error": "Adresse invalide"}), 400
 
-        weather_data = compute_risk_index(lat, lon) if False else None
-        risk_index = compute_risk_index(weather_data) 
-
-        prix_kg = 0.25
-        rendement_t_ha = 6.5
-        prime = surface * rendement_t_ha * 1000 * prix_kg * risk_index
-
-        logger.info(f"{address} -> RiskIndex={risk_index:.2f}, Prime={prime:.2f}")
+        weather_data = get_weather_data(lat, lon)
+        risk_index = compute_risk_index(weather_data)
 
         return jsonify({
+            "risk_index": risk_index,
             "address": address,
             "crop": crop,
-            "surface": surface,
-            "risk_index": round(risk_index, 3),
-            "prime": round(prime, 2)
+            "surface": surface
         })
 
     except Exception as e:
-        logger.exception("Unexpected error")
+
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
