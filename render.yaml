@@ -1,9 +1,10 @@
 services:
-  - type: web
-    name: arc-backend
-    env: python
-    region: frankfurt
-    plan: free
-    buildCommand: "pip install -r backend/requirements.txt"
-    startCommand: "python3 backend/app.py"
-    rootDir: "."
+-type: web
+name: arc-autonomous-risk-coverage
+env: python
+plan: free
+buildCommand: ""
+startCommand: gunicorn app:app --bind 0.0.0.0 :5000
+envVars:
+-key: PYTHON_VERSION
+value: 3.12.3
