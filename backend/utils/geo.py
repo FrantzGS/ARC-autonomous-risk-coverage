@@ -1,17 +1,22 @@
 import requests
 
-def get_coordinates(address):
+def geocode_address(address):
     url = "https://nominatim.openstreetmap.org/search"
     params = {
-        'q': address,
-        'format': 'json',
-        'limit': 1
+        "q": address,
+        "format": "json",
+        "limit": 1
+    }
+    headers = {
+        "User-Agent": "ARCBackend/1.0"
     }
 
-    response = requests.get(url, params=params)
+    response = requests.get(url, params=params, headers=headers)
+    data = response.json()
 
-    if response.status_code != 200 or not response.json():
-        raise Exception("Adresse introuvable ou erreur API Nominatim")
+    if not data:
+        return None, None
 
-    data = response.json()[0]
-    return float(data['lat']), float(data['lon'])
+    lat = float(data[0]["lat"])
+    lon = float(data[0]["lon"])
+    return lat, lon

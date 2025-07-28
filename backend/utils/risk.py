@@ -1,69 +1,58 @@
-import random
+def compute_risk_index(weather_data: list) -> float:
+    from datetime import datetime
 
-def compute_risk_index(weather_data: list, crop: str) -> float:
-    drought_risk = 0
-    frost_risk = 0
-    flood_risk = 0
-    years = len(weather_data)
+    gel_days = 0
+    precip_juin_juillet = 0.0
+    dry_streak = 0
+    max_dry_streak = 0
 
-    for year in weather_data:
-        total_precip = sum(day["precipitation"] for day in year)
-        frost_days = sum(1 for day in year if day["temperature_min"] < 0)
-        flood_days = sum(1 for day in year if day["precipitation"] > 20)
+    for day in weather_data:
+        tmin = day.get("temperature_min", 99)
+        precip = day.get("precipitation_sum", 0.0)
+        date = datetime.strptime(day["date"], "%Y-%m-%d")
 
-        # Risque sécheresse si < 500mm/an
-        if total_precip < 500:
-            drought_risk += 1
+        if tmin < -2:
+            gel_days += 1
+        if date.month in [6, 7]:
+            precip_juin_juillet += precip
+        if precip < 1.0:
+            dry_streak += 1
+            max_dry_streak = max(max_dry_streak, dry_streak)
+        else:
+            dry_streak = 0
 
-        # Risque gel si > 15 jours de gel/an
-        if frost_days > 15:
-            frost_risk += 1
+    score = 0.0
+    if gel_days > 5:
+        score += 0.3
+    if precip_juin_juillet < 200:
+        score += 0.3
+    if max_dry_streak >= 20:
+        score += 0.4
 
-        # Risque inondation si > 10 jours de pluie forte/an
-        if flood_days > 10:
-            flood_risk += 1
+    return min(score, 1.0)
 
-    # Moyennes sur les 5 ans
-    drought_score = drought_risk / years
-    frost_score = frost_risk / years
-    flood_score = flood_risk / years
-
-    # Pondération selon la culture
-    crop_weights = {
-        "blé": (0.5, 0.3, 0.2),
-        "maïs": (0.6, 0.2, 0.2),
-        "colza": (0.4, 0.3, 0.3),
-        "tournesol": (0.5, 0.3, 0.2),
-        "vigne": (0.3, 0.6, 0.1),
-        "pommier": (0.3, 0.4, 0.3),
-        "poirier": (0.3, 0.4, 0.3),
-        "pêcher": (0.3, 0.5, 0.2),
-        "olivier": (0.5, 0.3, 0.2)
-    }
-
-    weights = crop_weights.get(crop.lower(), (0.4, 0.4, 0.2))
-    risk_index = (
-        drought_score * weights[0] +
-        frost_score * weights[1] +
-        flood_score * weights[2]
-    )
-
-    # Clamp entre 0.1 et 0.9
-    return round(min(max(risk_index, 0.1), 0.9), 3)
+import requests
 
 def get_weather_data(lat, lon):
-    import random
+    url = "https://archive-api.open-meteo.com/v1/archive"
+    params = {
+        "latitude": lat,
+        "longitude": lon,
+        "start_date": "2021-01-01",
+        "end_date": "2021-12-31",
+        "daily": ["temperature_2m_min", "precipitation_sum"],
+        "timezone": "Europe/Paris"
+    }
 
-    # Simule 5 années de données météo (365 jours x 5)
+    response = requests.get(url, params=params)
+    data = response.json()
+
     weather_data = []
-    for _ in range(5):
-        year_data = []
-        for _ in range(365):
-            day = {
-                "precipitation": random.uniform(0, 20),
-                "temperature_min": random.uniform(-5, 15),
-            }
-            year_data.append(day)
-        weather_data.append(year_data)
+    for i in range(len(data["daily"]["time"])):
+        weather_data.append({
+            "date": data["daily"]["time"][i],
+            "temperature_min": data["daily"]["temperature_2m_min"][i],
+            "precipitation_sum": data["daily"]["precipitation_sum"][i]
+        })
 
     return weather_data
