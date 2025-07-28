@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from utils.logger import get_logger
 from utils.geo import geocode_address
-from utils.risk import compute_risk_index
+from utils.risk import compute_risk_index, get_weather_data
 
 app = Flask(__name__)
 logger = get_logger()
@@ -17,32 +17,30 @@ def calculate_risk():
 
         address = data.get('address')
         crop = data.get('crop')
-        area = data.get('area')
+        surface = data.get('surface') or data.get('area')  # fallback OK
 
-        if not address or not crop or not area:
+        if not address or not crop or not surface:
             logger.warning("Requête incomplète reçue")
-            return jsonify({'error': 'Missing address, crop, or area'}), 400
+            return jsonify({'error': 'Champs requis manquants'}), 400
 
         lat, lon = geocode_address(address)
         if lat is None or lon is None:
             logger.warning(f"Adresse non trouvée : {address}")
-            return jsonify({'error': 'Could not geocode address'}), 400
+            return jsonify({'error': 'Adresse non trouvée'}), 400
 
-        from utils.risk import get_weather_data 
         weather_data = get_weather_data(lat, lon)
         risk_index = compute_risk_index(weather_data)
 
-
         prix_kg = 0.25
         rendement_t_ha = 6.5
-        prime = area * rendement_t_ha * 1000 * prix_kg * risk_index
+        prime = float(surface) * rendement_t_ha * 1000 * prix_kg * risk_index
 
         logger.info(f"{address} → RiskIndex={risk_index:.2f}, Prime={prime:.2f}")
 
         return jsonify({
             "address": address,
             "crop": crop,
-            "area": area,
+            "surface": surface,
             "risk_index": round(risk_index, 3),
             "prime": round(prime, 2)
         })
