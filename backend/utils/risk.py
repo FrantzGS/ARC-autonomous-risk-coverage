@@ -1,4 +1,5 @@
-def compute_risk_index(weather_data: list) -> float:
+def compute_risk_index_from_daily(weather_data: list) -> float:
+
     from datetime import datetime
 
     gel_days = 0
@@ -56,3 +57,16 @@ def get_weather_data(lat, lon):
         })
 
     return weather_data
+
+def compute_risk_index_from_summary(weather_data: dict) -> float:
+    
+    precipitation = weather_data.get("precipitation", 0)
+    frost_days = weather_data.get("frost_days", 0)
+    heatwaves = weather_data.get("heatwaves", 0)
+
+    drought_score = max(0, 1 - precipitation / 300)  # sec si < 300 mm
+    frost_score = min(frost_days / 10, 1)
+    heatwave_score = min(heatwaves / 5, 1)
+
+    risk_index = (0.5 * drought_score) + (0.3 * frost_score) + (0.2 * heatwave_score)
+    return round(min(risk_index, 1), 3)
