@@ -38,3 +38,33 @@ Sepolia Testnet (live)
 📘 Note
 This MVP is a functional simulation.
 In production, ARC will integrate Chainlink weather oracles, real on-chain AI risk scoring, and DeFi yield strategies to sustain premium pools.
+
+## ✅ Backend API
+
+The ARC backend is deployed on [Render](https://arc-autonomous-risk-coverage.onrender.com).
+
+It exposes a public POST route at `/api/calculate`, which computes the weather-based risk index and premium based on:
+
+- `address`: used for geolocation (e.g. "Narbonne, France")
+- `crop`: type of crop (e.g. "blé")
+- `surface`: field size in hectares
+
+**Example request**:
+```json
+{
+  "address": "Narbonne, France",
+  "crop": "blé",
+  "surface": "10"
+}
+
+Example response: 
+
+{
+  "address": "Narbonne, France",
+  "crop": "blé",
+  "surface": 10.0,
+  "risk_index": 0.503,
+  "prime": 8173.75
+}
+
+✅ This backend is consumed by Chainlink Functions and the frontend React interface.
