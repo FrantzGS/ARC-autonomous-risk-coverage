@@ -1,6 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
-const { networks } = require("./networks");
+const { PRIVATE_KEY, SEPOLIA_RPC_URL, ETHERSCAN_API_KEY } = process.env;
 
 module.exports = {
   defaultNetwork: "ethereumSepolia",
@@ -12,21 +12,20 @@ module.exports = {
       {
         version: "0.8.19",
         settings: {
-          optimizer: { enabled: true, runs: 200 },
+          optimizer: { enabled: true, runs: 200 }
         },
       },
     ],
   },
   networks: {
-    ...networks,
+    ethereumSepolia: {
+      url: SEPOLIA_RPC_URL,
+      accounts: [PRIVATE_KEY],
+    },
   },
   etherscan: {
     apiKey: {
-      sepolia: networks.ethereumSepolia.verifyApiKey,
-      arbitrumSepolia: networks.arbitrumSepolia.verifyApiKey,
-      baseSepolia: networks.baseSepolia.verifyApiKey,
-      optimismSepolia: networks.optimismSepolia.verifyApiKey,
-      polygonAmoy: networks.polygonAmoy.verifyApiKey,
+      sepolia: ETHERSCAN_API_KEY,
     },
     customChains: [
       {
@@ -34,9 +33,9 @@ module.exports = {
         chainId: 11155111,
         urls: {
           apiURL: "https://api-sepolia.etherscan.io/api",
-          browserURL: "https://sepolia.etherscan.io",
-        },
-      },
-    ],
-  },
+          browserURL: "https://sepolia.etherscan.io"
+        }
+      }
+    ]
+  }
 };

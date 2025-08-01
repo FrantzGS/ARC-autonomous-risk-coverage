@@ -15,3 +15,18 @@ backend/.env.*
 
 # Autres
 .DS_Store
+ 
+# Artifacts / Cache / Build
+smart-contracts/artifacts/
+smart-contracts/cache/
+smart-contracts/build-info/
+
+# Environnement
+*.env
+*.env.*
+smart-contracts/.env_backup_old
+.venv/
+
+# Node modules
+**/node_modules/
+

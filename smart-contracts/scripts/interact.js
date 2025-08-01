@@ -2,42 +2,55 @@ const { ethers } = require("hardhat");
 require("dotenv").config();
 
 async function main() {
-  const provider = new ethers.JsonRpcProvider(process.env.SEPOLIA_RPC_URL);
+  const provider = new ethers.providers.JsonRpcProvider(process.env.SEPOLIA_RPC_URL);
   const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
-  const arcAddress = "0xacC17bC85A5B216114fE1fBaC950Ca81bfc7CFdB";
-  const mockUSDC = "0xE03B6dF5B43237Bf64A2B512FF1483C06F2703F2";
+  const arcAddress = ethers.utils.getAddress("0xE21fdc30466d605Dc61d8C2973f3d5370B757A57");
+const mockUSDCAddress = ethers.utils.getAddress("0xD3a6a55581d90035e5C92bC082DbeA9A8f4Bdf94");
+console.log("Contract address (ARC):", arcAddress);
+console.log("MockUSDC address:", mockUSDCAddress);
 
   const arc = await ethers.getContractAt("ARCSubscription", arcAddress, wallet);
-  const usdc = await ethers.getContractAt("IERC20", mockUSDC, wallet);
+  const mockUSDC = await ethers.getContractAt("IERC20", mockUSDCAddress, wallet);
 
-  const amount = ethers.parseUnits("50", 6);
-  const pricePerKg = ethers.parseUnits("1.2", 2);
+  const amount = ethers.utils.parseUnits("50", 6);
+  const pricePerKg = ethers.utils.parseUnits("1.2", 2); // 1.20€
 
-  // Étape 1 : Approve
-  console.log("🔁 Étape 1 : approve()");
-  const approveTx = await usdc.approve(arcAddress, amount);
+  const balance = await mockUSDC.balanceOf(wallet.address);
+  console.log("USDC balance:", balance.toString());
+
+  console.log("Étape 1 : approve()");
+  const approveTx = await mockUSDC.approve(arcAddress, amount);
   await approveTx.wait();
-  console.log("✅ Approve réussi");
+  console.log("Approve réussi");
 
-  // Étape 2 : Subscribe
-  console.log("🔁 Étape 2 : subscribeUSDC()");
-  const tx = await arc.subscribeUSDC(
-    mockUSDC,
+  console.log("Appel subscribeUSDC avec :");
+console.log(" - token address :", mockUSDC.address);
+console.log(" - surface :", 5);
+console.log(" - crop :", "blé dur");
+console.log(" - duration :", 120);
+
+  console.log("Étape 2 : subscribeUSDC()");
+  const subscribeTx = await arc.subscribeUSDC(
+    mockUSDCAddress,
     "Blé dur",
     5,
     pricePerKg,
     42,
     { gasLimit: 300000 }
   );
-  const receipt = await tx.wait();
-  console.log("✅ Subscription confirmée :", tx.hash);
+  const subscribeReceipt = await subscribeTx.wait();
+  console.log("Subscription confirmée :", subscribeTx.hash);
 
-  // Étape 3 : Events
-  console.log("📡 Events émis :", receipt.logs.map(log => log.fragment?.name));
+  console.log("Étape 3 : payout()");
+  const payoutTx = await arc.payout();
+  await payoutTx.wait();
+  console.log("Payout exécuté :", payoutTx.hash);
+
+  console.log("Events émis :", subscribeReceipt.logs.map(log => log.fragment?.name || "unknown"));
 }
 
 main().catch((error) => {
-  console.error("❌ Erreur :", error);
-  process.exitCode = 1;
+  console.error("Erreur :", error);
+  process.exit(1);
 });

@@ -1,21 +1,22 @@
-const { ethers } = require("hardhat");
 require("dotenv").config();
+const { ethers } = require("ethers");
+const fs = require("fs");
+
+const ABI = JSON.parse(fs.readFileSync("./artifacts/contracts/mocks/MockUSDC.sol/MockUSDC.json", "utf8")).abi;
+const BYTECODE = JSON.parse(fs.readFileSync("./artifacts/contracts/mocks/MockUSDC.sol/MockUSDC.json", "utf8")).bytecode;
 
 async function main() {
-  const [deployer] = await ethers.getSigners();
+  const provider = new ethers.providers.JsonRpcProvider(process.env.SEPOLIA_RPC_URL);
+  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
-  console.log("Déploiement avec :", deployer.address);
+  console.log("Déploiement avec :", wallet.address);
 
-  const initialSupply = ethers.parseUnits("1000000", 6); // 1 million USDC
+  const factory = new ethers.ContractFactory(ABI, BYTECODE, wallet);
+  const mock = await factory.deploy();
 
-  const MockUSDC = await ethers.getContractFactory("MockUSDC");
-  const mock = await MockUSDC.deploy(initialSupply);
-  await mock.waitForDeployment();
-
-  console.log("✅ Mock USDC déployé à :", await mock.getAddress());
+  console.log("Déployé à l'adresse :", mock.address);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+main().catch((err) => {
+  console.error("Erreur :", err);
 });

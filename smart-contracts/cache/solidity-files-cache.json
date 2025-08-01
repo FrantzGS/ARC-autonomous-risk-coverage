@@ -646,42 +646,6 @@
         "Ownable"
       ]
     },
-    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol": {
-      "lastModificationDate": 1753567839582,
-      "contentHash": "1535f8c0c68463f8c1b5239f7584e71f",
-      "sourceName": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ReentrancyGuard"
-      ]
-    },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@openzeppelin/contracts/security/Pausable.sol": {
       "lastModificationDate": 1753567839574,
       "contentHash": "25c8108f36fdd472bc78d4c4af240c11",
@@ -718,6 +682,42 @@
       ],
       "artifacts": [
         "Pausable"
+      ]
+    },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+      "lastModificationDate": 1753567839582,
+      "contentHash": "1535f8c0c68463f8c1b5239f7584e71f",
+      "sourceName": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ReentrancyGuard"
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
@@ -870,6 +870,44 @@
         "ERC20"
       ]
     },
+    "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/contracts/mocks/MockUSDC.sol": {
+      "lastModificationDate": 1754002199677,
+      "contentHash": "c284c185a5aa2ce5e91ebba57e2ee842",
+      "sourceName": "contracts/mocks/MockUSDC.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "MockUSDC"
+      ]
+    },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/contracts/MockUSDT.sol": {
       "lastModificationDate": 1752882133535,
       "contentHash": "ead82316d360536e84ed3bdc23d406d9",
@@ -909,8 +947,8 @@
       ]
     },
     "/home/frantz/ARC-autonomous-risk-coverage/smart-contracts/contracts/MockUSDC.sol": {
-      "lastModificationDate": 1752882133534,
-      "contentHash": "6732c5e06f8c976f3c39a44de310fe67",
+      "lastModificationDate": 1754005157820,
+      "contentHash": "1054f46854484e39bbb33f130c37cee1",
       "sourceName": "contracts/MockUSDC.sol",
       "solcConfig": {
         "version": "0.8.20",

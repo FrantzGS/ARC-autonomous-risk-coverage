@@ -1,47 +1,47 @@
-const { config } = require("dotenv");
-config();
-const fs = require("fs");
-const { ethers } = require("ethers");
+import { ethers } from "ethers";
+import * as dotenv from "dotenv";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.resolve(__dirname, "../../.env") });
+
+const abiPath = path.resolve(
+  __dirname,
+  "../../artifacts/contracts/ARCFunctionsConsumer.sol/ARCFunctionsConsumer.json"
+);
+const FunctionsConsumerAbi = JSON.parse(fs.readFileSync(abiPath, "utf8"));
 
 async function main() {
-  const provider = new ethers.providers.JsonRpcProvider(process.env.SEPOLIA_RPC_URL);
-  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+  const rpcUrl = process.env.SEPOLIA_RPC_URL;
+  const privateKey = process.env.PRIVATE_KEY;
+  const consumerAddress = process.env.FUNCTIONS_CONSUMER_ADDRESS;
 
-  const contractAddress = process.env.FUNCTIONS_CONSUMER_ADDRESS;
-  const abi = JSON.parse(
-    fs.readFileSync(
-      "./artifacts/contracts/ARCFunctionsConsumer.sol/FunctionsConsumer.json",
-      "utf8"
-    )
-  ).abi;
-
-  const contract = new ethers.Contract(contractAddress, abi, wallet);
-  const requestId = process.env.REQUEST_ID;
-  if (!requestId) throw new Error("Missing REQUEST_ID in .env");
-
-  const response = ethers.utils.defaultAbiCoder.encode(["uint256"], [42]); // valeur mockée
-  const error = "0x";
-
-  try {
-    console.log("📡 Simulating callStatic...");
-    await contract.callStatic.testFulfillRequest(requestId, response, error);
-    console.log("✅ callStatic succeeded ➡️ real transaction will be sent.");
-
-  } catch (callErr) {
-    console.error("❌ callStatic reverted:", callErr);
-    return;
+  if (!rpcUrl || !privateKey || !consumerAddress) {
+    throw new Error("Missing environment variables");
   }
 
-  // Si on arrive ici, callStatic a réussi
-  try {
-    console.log("⛓️ Sending real transaction...");
-    const tx = await contract.testFulfillRequest(requestId, response, error);
-    console.log(`📬 Tx hash: ${tx.hash}`);
-    const receipt = await tx.wait();
-    console.log("✅ Transaction mined:", receipt.transactionHash);
-  } catch (txErr) {
-    console.error("❌ Transaction failed:", txErr);
-  }
+  const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
+  const wallet = new ethers.Wallet(privateKey, provider);
+  const consumer = new ethers.Contract(
+    consumerAddress,
+    FunctionsConsumerAbi.abi,
+    wallet
+  );
+
+  const mockRequestId = ethers.utils.hexZeroPad("0x1234", 32);
+  const mockRiskIndex = ethers.utils.toUtf8Bytes("42");
+
+  console.log(`Calling fulfillRequest() with mock values...`);
+  const tx = await consumer.testFulfillRequest(mockRequestId, mockRiskIndex, []);
+  console.log(`Tx hash : ${tx.hash}`);
+  await tx.wait();
+  console.log("fulfillRequest() exécuté avec succès !");
 }
 
-main();
+main().catch((err) => {
+  console.error("Erreur dans fulfill.js :", err);
+});
