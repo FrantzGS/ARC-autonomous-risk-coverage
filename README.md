@@ -51,11 +51,13 @@ It exposes a public POST route at `/api/calculate`, which computes the weather-b
 - `surface`: field size in hectares
 
 🧪 Example request 
+
 {
   "address": "Narbonne, France",
   "crop": "blé",
   "surface": "10"
 }
+
 ✅ Example response
 {
   "address": "Narbonne, France",
@@ -64,6 +66,7 @@ It exposes a public POST route at `/api/calculate`, which computes the weather-b
   "risk_index": 0.503,
   "prime": 8173.75
 }
+
 ✅ This backend is consumed by Chainlink Functions and the frontend React interface.
 
 🚀 Testnet Deployment & Usage
