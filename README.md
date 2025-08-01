@@ -57,34 +57,35 @@ It exposes a public POST route at `/api/calculate`, which computes the weather-b
   "address": "Narbonne, France",
   "crop": "blé",
   "surface": "10"
-} ```
+}
+
 
 
 
 ✅ Example response 
 
-```
-{
+```{
   "address": "Narbonne, France",
   "crop": "blé",
   "surface": 10.0,
   "risk_index": 0.503,
   "prime": 8173.75
-}```
+} ```
+
+---
 
 ✅ This backend is consumed by Chainlink Functions and the frontend React interface.
 
+---
 
-
-
-🧪 Testnet Deployment & Usage
+### 🧪 Testnet Deployment & Usage
 The ARCSubscription contract has been successfully deployed and tested on the Sepolia testnet.
 
 Contract address: 0xE21fdc30466d605Dc61d8C2973fd35f0787f5A57 
 
+---
 
-
-✅ Successful USDC Subscription
+### ✅ Successful USDC Subscription
 User wallet: 0x7D031cbf6993c9Df9b2fD80BE3b12D5f455760A7
 
 TxHash: 0x885e4cc6c7aa8f92c7f90bf1b3eb7b06cddae9bdfe1d472461e07c3d10d8f1822
@@ -99,14 +100,14 @@ Price per kg: 0.3 USDC
 
 Amount paid: 1000 USDC (mock) 
 
+---
 
-
-✅ Mock Token (USDC)
+### ✅ Mock Token (USDC)
 MockUSDC address: deployed locally on Sepolia
 
 Minted 1000 USDC (6 decimals) to the user account before subscription
 
-###
+
 
 
 
