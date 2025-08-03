@@ -30,3 +30,8 @@ smart-contracts/.env_backup_old
 # Node modules
 **/node_modules/
 
+# Ignore all .env files
+.env
+.env.*
+*/.env
+*/.env.*

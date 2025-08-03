@@ -1,0 +1,5 @@
+import ARC_ABI_JSON from "@abi/ARCSubscription.json";
+
+export const ARC_ABI = ARC_ABI_JSON;
+export const ARC_SUBSCRIPTION_ADDRESS = "0xE21fcdc30466d605Dc61d8C2973f3d5370B757A57";
+export const USDC_ADDRESS = "0x6aF6E39F3a7Cc0660B0b31e8d59f0c3430eBD3E3";
