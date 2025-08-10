@@ -1,13 +1,3 @@
-## 📩 Note for Judges
-
-Thank you for reviewing ARC – Autonomous Risk Coverage.
-
-🔹 This MVP was designed and built solo during ETHGlobal Unite (July 25 – Aug 3).
-🔹 All features are functional on Sepolia testnet with Chainlink Functions mock + 1inch API integration.
-🔹 Frontend simulates a full UX flow, including climate risk estimation + ETH > USDC swap + smart contract subscription.
-
-
-
 🌾 ARC – Autonomous Risk Coverage
 Climate-Linked Smart Coverage for a Changing World
 
@@ -48,6 +38,15 @@ Sepolia Testnet (live)
 📘 Note
 This MVP is a functional simulation.
 In production, ARC will integrate Chainlink weather oracles, real on-chain AI risk scoring, and DeFi yield strategies to sustain premium pools.
+
+## 📩 Note for Judges
+
+Thank you for reviewing ARC – Autonomous Risk Coverage.
+
+🔹 This MVP was designed and built solo during ETHGlobal Unite (July 25 – Aug 3).
+🔹 All features are functional on Sepolia testnet with Chainlink Functions mock + 1inch API integration.
+🔹 Frontend simulates a full UX flow, including climate risk estimation + ETH > USDC swap + smart contract subscription.
+
 
 
 ### ✅ Backend API
